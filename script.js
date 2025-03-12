@@ -11,23 +11,22 @@ let books = [
 //Function to render books on the page
 function displayBooks() {
     const libraryDiv = document.getElementById("library");
-    libraryDiv.innerHTML="";//clear existing content
+    libraryDiv.innerHTML = ""; // Clear existing content
 
     books.forEach(book => {
-        let bookDiv = document.getElementById("div");
-        bookDiv.classList.add("book");
+        let bookDiv = document.createElement("div"); // Create a new div element
+        bookDiv.classList.add("book"); // Add the "book" class to the div
 
         bookDiv.innerHTML = ` 
-        <h2>${book.title}</h2>
-        <p><strong>Author:</strong> ${book.author}</p>
-        <p><strong>Year:</strong> ${book.year}</p>
-        <p><strong>Status:</strong> ${book.isAvailable ? "Available" : "Borrowed"}</p>
-        <button class="borrow" ${!book.isAvailable ? "disabled" : ""}
-        onclick="borrowBook(${book.id})">Borrow</button>
-        <button class="return" ${!book.isAvailable ? "disabled" : ""}
-        onclick="returnBook(${book.id})">Return</button>
-     `;
-     libraryDiv.appendChild(bookDiv);
+            <h2>${book.title}</h2>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>Year:</strong> ${book.year}</p>
+            <p><strong>Status:</strong> ${book.isAvailable ? "Available" : "Borrowed"}</p>
+            <button class="borrow" ${!book.isAvailable ? "disabled" : ""} onclick="borrowBook(${book.id})">Borrow</button>
+            <button class="return" ${book.isAvailable ? "disabled" : ""} onclick="returnBook(${book.id})">Return</button>
+        `;
+
+        libraryDiv.appendChild(bookDiv); // Append the new div to the libraryDiv
     });
 }
 
