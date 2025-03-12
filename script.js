@@ -30,12 +30,22 @@ function displayBooks() {
     });
 }
 
-//Function to borrow a book
+// Function to borrow a book
 function borrowBook(bookId) {
     let book = books.find(b => b.id === bookId);
     if (book && book.isAvailable) {
-        book.isAvailable = true;
-        alert(`You have returned "${book.title}",`);
+        book.isAvailable = false; // Set the book as borrowed
+        alert(`You have borrowed "${book.title}".`);
+        displayBooks();
+    }
+}
+
+// Function to return a book
+function returnBook(bookId) {
+    let book = books.find(b => b.id === bookId);
+    if (book && !book.isAvailable) {
+        book.isAvailable = true; // Set the book as available
+        alert(`You have returned "${book.title}".`);
         displayBooks();
     }
 }
