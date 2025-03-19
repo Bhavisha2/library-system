@@ -29,7 +29,7 @@ function displayBooks() {
 
 // Function to handle form submission and add a new book
 document.getElementById("addBookForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
+    event.preventDefault(); // Prevent the form from submitting traditionally
 
     // Get input values
     const title = document.getElementById("title").value;
