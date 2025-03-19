@@ -9,10 +9,22 @@
 <body>
     <h1>Library Management System</h1>
 
-    <div id="library">
-        <!--books will be loaded here dynamically-->
-    </div>
+   <div id="library"></div>
 
+<!-- Form to add a new book -->
+<form id="addBookForm">
+    <h3>Add a New Book</h3>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+    
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required>
+    
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" required>
+    
+    <button type="submit">Add Book</button>
+</form>
     <script src="script.js"></script>
 </body>
 </html>
